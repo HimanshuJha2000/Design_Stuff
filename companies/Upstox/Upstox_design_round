@@ -1,0 +1,89 @@
+Flights
+
+We have flight vendors
+
+1. A user should be able to search a flight from source to destinatiom
+2. User should be able to book a flight
+
+APIS
+Schema
+Database - What kind of 
+Strategy - Services that I will be using
+
+Schema
+
+1. FlightVendor - Flight vendor details (List of flights, there schedules)
+2. User - Apart from basic details, coupons that he has, list of bookings
+3. Flight - Flight details (Flight name, FlightPrice, SeatsAvailaibilty)
+4. Location - (Source, Destination)
+5. Date - (Date colum)
+6. BookingAttributes
+7. Booking details
+8. Coupon
+9. 
+
+
+APIS 
+
+1. 
+
+Request : POST v1/search/{source}/{detination}/{date}
+Response :
+
+200 OK
+
+{
+	"flight1" : {
+
+	},
+	"flight2" :  {
+
+	}
+}
+
+2. 
+
+100 vendors - 100 goroutines 
+
+Request : v1/getFlights/{flightVendor}
+
+200 OK
+
+{
+	
+}
+
+3. POST v1/bookTicket
+
+{
+	""
+}
+
+4. POST v1/UpdateVendor/{vendor}
+
+{
+	
+}
+
+5. POST v1/payment
+
+{
+	
+}
+
+Services :
+
+1. 
+
+
+Auth service
+
+Booking service - 
+
+Payment service - 
+
+Notifications service - email and sms to the user for booking
+
+
+
+

@@ -1,0 +1,69 @@
+
+Multi part request - Read
+
+
+File sharing service
+
+Requirements :
+
+1. Upload a file/directory onto the service.
+2. User based Sharing(via email) the file or directory with others. -> login will be required -> user will receive a email to open that file
+4. Public viewing via url
+
+
+User - ID, email, name, UserType, List<File>File_ID, List<File> File_ID,
+
+Enum  UserType{
+	Anonymous_User, SignedIn_User
+}
+
+File - ID, Filepermissions, name ..., counter
+
+
+
+User  
+	ID
+	TypeOfUser	
+	email	
+	name		
+
+User_ID-Node_Id
+
+	id
+	User_id 
+	Node_id
+
+	U1 -- F1
+	U2 -- F1 
+	U3 -- D3
+	U3 -- D4
+
+Node
+
+	Parent_node : D1
+	Node_id
+	Node_name
+	Counter
+	Owner_ID
+	NodePath
+	publiclyAvailable
+
+
+v1/upload/
+14 charcater
+
+							(Using S3)
+Auth Service ->Redis->  Uploader service ->  Notifications service 
+						Sharing service 
+						Viewing service 
+
+
+
+Bounce email - 
+
+
+
+
+
+
+

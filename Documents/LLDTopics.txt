@@ -1,0 +1,28 @@
+function overloading/overriding
+foreign keys
+inheritance
+primary key
+Indexing
+Schema banana
+Abstract class
+Design patterns in C++(factory, singleton, builder)
+Error handling
+Error codes(4xx, 5xx and 2xx)
+Use enums
+Exception/error handling in class
+Manager/Controller/Driver class important
+Concurrency in go
+Http methods(put vs patch)
+OOPS concepts MCQs
+ORM models for synching tables and models
+Transactions,locking, ACID and BASE properties
+DRY principle
+KISS principle
+SOLID principle
+
+
+
+
+
+
+

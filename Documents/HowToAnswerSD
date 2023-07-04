@@ -1,0 +1,61 @@
+How to answer in a System Design Interview:
+
+1. Read-Heavy System: Consider using a cache.
+
+2. Low Latency Requirement: Utilize cache and CDN.
+
+3. Write-Heavy System: Use message queues for async processing.
+
+4. ACID Compliance: Opt for RDBMS or SQL Database.
+
+5. Unstructured Data: Choose NoSQL Database.
+
+6. Complex Data (Videos, Images, Files): Go for Blob/Object storage.
+
+7. Complex Pre-computation: Use Message Queue & Cache.
+
+8. High-Volume Data Search: Consider search index or search engine.
+
+9. Scaling SQL Database: Implement Database Sharding.
+
+10. High Availability, Performance, & Throughput: Use a Load Balancer.
+
+11. Global Data Delivery: Employ a CDN.
+
+12. Graph Data: Utilize Graph Database.
+
+13. Scaling Various Components: Implement Horizontal Scaling.
+
+14. High-Performing Database Queries: Use Database Indexes.
+
+15. Bulk Job Processing: Consider Batch Processing & Message Queues.
+
+16. Server Load Management: Use a Rate Limiter.
+
+17. Microservices Architecture: Utilize an API Gateway.
+
+18. Redundancy for Single Point of Failure: Implement Redundancy.
+
+19. Fault-Tolerance and Durability: Employ Data Replication.
+
+20. User-to-User Communication: Use Websockets.
+
+21. Failure Detection in Distributed Systems: Implement a Heartbeat.
+
+22. Data Integrity: Use Checksum Algorithm.
+
+23. Efficient Server Scaling: Implement Consistent Hashing.
+
+24. Decentralized Data Transfer: Consider Gossip Protocol.
+
+25. Location-Based Functionality: Use Quadtree, Geohash, etc.
+
+26. Avoid Specific Technology Names: Use generic terms.
+
+27. High Availability and Consistency Trade-Off: Eventual Consistency.
+
+28. Domain Name Query: Mention DNS (Domain Name System).
+
+29. Handling Large Data in Network Requests: Implement Pagination.
+
+30. Cache Eviction Policy: Preferred is LRU (Least Recently Used) Cache.

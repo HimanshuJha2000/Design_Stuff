@@ -1,0 +1,60 @@
+1. Chat service - REST based - between 2 people
+
+api 1 - user 1 - "message"
+
+api 2 - user x - new 
+
+
+
+4. SendMessage(message)
+5. ReadMessage()
+
+
+API Signature : 
+
+userName1 - User who is sending the message
+userName2 - User who has to receive the message
+
+1. POST http://localhost:9000/chat/sendMessage/:userName1/:username2
+
+	Request Body :
+	{
+		"message" : "I am message"
+	}
+
+	Response :
+
+Happy flow
+
+	Status code : 200
+	body : {
+		"message has been sent"
+	}
+
+
+
+2. GET http://localhost:9000/chat/readMessage/:username2/:username1
+
+	Response :
+
+Happy flow -
+
+	Status code : 200 
+	body : {
+		"message 1" : "message 1",
+		"message 2" : "message 2",
+		...
+	}
+
+
+	map[user][message]
+
+	struct superUser {
+		sender
+		receiver
+	}
+
+
+
+
+

@@ -1,0 +1,53 @@
+Design bookmyshow
+
+Customer
+
+1. Book different types of cinema, events, seats, halls
+2. Book seats for those events
+3. make payment for this
+
+
+Manager (Admin) - multiplex
+
+1. add events/films/
+2. add cinema halls
+3. add new schedule
+
+add events
+
+Functional Req:
+
+Models
+
+1. User (abstract)
+	- Admin
+	- Customer
+	- GuestUser
+2. Seats (abstract)
+	- PremiumType - price
+	- ExecutiveType
+	- GeneralType 
+3. SeatType : Enum	
+3. Shows (abstract)
+	- Movie
+	- Concerts
+	- Exhibitions
+4. Cinema : Attributes{name, List<halls>, Location address, }
+5. Hall : Seats, List<shows>
+
+Movie_id, hall_id, List<halls>m List<movies>
+
+6. Movie : Title, Desc, language, GetShows()(fetch all the shows for this movie), List<hall>
+7. Concerts : class
+8. EventTimings : Date, starttim, end time, <id>
+9. Payment : Inteface
+	- NetbankingClass
+	- UPIClass
+	- DebitCardClass
+10. PaymentType: Netbanking, UPI
+11. DebitCardClass : User, SavedCard <card>, bankType, all details
+12. Card : all the details
+13. Booking : Event, PaymentDetails, Seats, Status, CancelBooking(), CreateBooking()
+14. Seat : 
+
+

@@ -1,0 +1,54 @@
+𝐃𝐨 𝐲𝐨𝐮 𝐤𝐧𝐨𝐰 Swiggy 𝐮𝐬𝐞𝐬 𝐭𝐡𝐞 𝐌𝐋 𝐚𝐩𝐩𝐫𝐨𝐚𝐜𝐡 𝐟𝐨𝐫 𝐫𝐨𝐮𝐭𝐢𝐧𝐠 𝐩𝐚𝐲𝐦𝐞𝐧𝐭 𝐭𝐫𝐚𝐧𝐬𝐚𝐜𝐭𝐢𝐨𝐧𝐬?
+
+
+Behind every online payment transaction at Swiggy, an ML model routes the transaction to one among the available Payment Gateways (PGs) to meet specific objectives. A 𝒑𝒂𝒚𝒎𝒆𝒏𝒕 𝒈𝒂𝒕𝒆𝒘𝒂𝒚 (𝑷𝑮) 𝒊𝒔 𝒂 𝑷𝒂𝒚𝒎𝒆𝒏𝒕 𝑺𝒆𝒓𝒗𝒊𝒄𝒆 𝑷𝒓𝒐𝒗𝒊𝒅𝒆𝒓 (𝑷𝑺𝑷) that facilitates payment.
+Swiggy accepts a variety of payment methods, viz. Card — debit/credit, UPI, net banking, wallets, etc. Most payment methods have a set of PGs responsible for fulfilling the transaction, but a failed transaction can lead to a bad customer experience.
+
+𝑯𝒆𝒏𝒄𝒆 𝑫𝒂𝒕𝒂 𝑺𝒄𝒊𝒆𝒏𝒄𝒆 𝑷𝒓𝒐𝒃𝒍𝒆𝒎 𝒂𝒓𝒊𝒔𝒆𝒔 𝒇𝒐𝒓 𝒕𝒉𝒆 𝒐𝒑𝒕𝒊𝒎𝒂𝒍 𝒓𝒐𝒖𝒕𝒊𝒏𝒈 𝒐𝒇 𝒕𝒓𝒂𝒏𝒔𝒂𝒄𝒕𝒊𝒐𝒏𝒔 𝒂𝒏𝒅 𝒊𝒎𝒑𝒓𝒐𝒗𝒊𝒏𝒈 𝒕𝒉𝒆 𝑷𝒂𝒚𝒎𝒆𝒏𝒕 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 𝑹𝒂𝒕𝒆(𝑷𝑺𝑹).
+
+There are Three Different ML models for each different payment method, i.e Netbanking, UPI, and Card.
+Let's see Three PG routing models:
+
+𝟏)𝐓𝐡𝐞 𝐍𝐞𝐭𝐛𝐚𝐧𝐤𝐢𝐧𝐠 𝐏𝐆 𝐑𝐨𝐮𝐭𝐢𝐧𝐠 𝐌𝐨𝐝𝐞𝐥
+This model seeks to maximise the PSR of net banking transactions by routing each transaction to the best PG. They determined that the bank's success rate trend with each PG would be a critical factor in determining the optimal routing.
+However, there is some concern about the availability of net banking transactions for each bank and PG combination in the previous x hours.
+As a result, they settled on epsilon-greedy routing, which employs PG, Bank level success rates in the previous four hours, one day, and seven days, and PG-level success rates in the previous five minutes.
+
+𝟐)𝐓𝐡𝐞 𝐔𝐏𝐈 𝐏𝐆 𝐑𝐨𝐮𝐭𝐢𝐧𝐠 𝐌𝐨𝐝𝐞𝐥
+Our routing approach uses the technique of sampling from a Beta Distribution to score PGs. The most common use of Beta distribution is to model the uncertainty about the probability of success of a random experiment. In this case, the random experiment is routing a transaction to a PG, and the outcome is the successful or failed signal resulting from this routing.
+
+𝟑)𝐓𝐡𝐞 𝐂𝐚𝐫𝐝𝐬 𝐏𝐆 𝐫𝐨𝐮𝐭𝐢𝐧𝐠 𝐌𝐨𝐝𝐞𝐥
+They have implemented a post-processing step in the routing approach to account for PG Rate. This step penalises PGs with high costs by dividing the PG's success probability by the PG rate, optimising for both PSR and the PG rate.
+Later, they discovered that the success rates of various card and PG combinations are not stationary, because current greedy routing causes certain cards to be routed to only one PG.
+For this, an epsilon greedy explore-exploit framework is a widely-adopted technique to tackle the problems of greedy approaches. So currently they are using the Logistic Regression model to achieve similar PSR and PG Cost Metrics.
+
+
+
+
+How do you explain your past projects?
+ 
+As an interviewer, I have always found a consistent pattern of struggle in this question. Most of the struggle is not having a structure to present and as a result, the rambling and long winded answers.
+ 
+Here is an easy framework that you can use and practice if you want to give an impactful reply that showcases your real skill set:
+ 
+IPR-CTO Framework:
+ 
+1. Intro (I): Go top down. First give a brief of the product then the particular project you worked upon. 👋
+
+2. Problem (P): Here you describe the feature requirement or pain point that you worked upon. 🐞
+
+3. Role (R): Here you describe what was YOUR role in this project. e.g. front end or back end or full stack engineer or architect or tech lead or manager.
+
+4. Contribution ( C): Here you describe what was YOUR exact contribution to this project. e.g. I wrote a design document, implemented backend APIs and unit tests using Python and Flask. Here you can ask a clarifying question to the interviewer – let me know if you’d like me to dive deep into any particular area. Also, take a pause here to ask if the interviewer has any question(s).
+ 
+5. Timeline (T): Here you describe how long the project took to complete. ⏳
+ 
+6. Outcome (O): Here you describe any small or big wins as a result of the delivery of this project.
+ 
+In the end, you can also share your learnings from the project, as a matter of fact, I’d encourage you to share your learnings even if not asked.
+ 
+If you find the acronym big, then at least go with PCO! :)
+ 
+You have worked hard on your current and past projects, don’t miss this chance to showcase your skill set properly.
+ 
+Godspeed. 🚀

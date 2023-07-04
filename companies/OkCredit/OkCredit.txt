@@ -1,0 +1,28 @@
+Owner
+Customers Accounts
+Each Account has a due (credits - payments) associated with it
+Collection List
+List of Account with dues
+
+Staff:
+Goes for collection on field & records transaction
+Transaction Types:
+Cash
+Cheque
+NEFT
+
+Transactions Model:
+Fields:
+Txn_id
+Txn_amount
+Txn_type
+Approved_By_Owner
+Staff_ID
+
+Existing API:
+[POST] /v1/transactions - to record transactions
+[GET] /v1/transactions/approval - to get transactions for approval
+[POST] /v1/transactions/approval - to approve a particular transaction
+
+Problem Statement:
+Design an API to approve transactions in bulk efficiently, considering all the possibilities.

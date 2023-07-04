@@ -1,0 +1,163 @@
+Notes
+
+SSL communications
+Networking
+Hashing functions used
+Caching
+Rate limitng
+Fallback mechanism
+Normalisation vs Denormalisation - when do we normalize data
+What precautions one should take while connecting to public wifi medium
+utf 8
+K6 load testing - 
+how https is secure than http
+encryption vs hashing
+Full text search in postgres
+
+
+
+Pagination
+
+1. Offset based pagination - A commonly found approach for developing a pagination API is offset-based. Here, the Frontend requested 10 rows after the 100th row of the products table. This is harmless when the size of the table is small. However, latency increases with the increasing value of the offset.
+
+Why? Because the database (not all kinds of database) actually prepares offset+limit numbers of rows for this query. So, when the offset value becomes larger, the database has to go through offset+limit numbers of rows.
+
+
+2. Token based pagination - In this type of pagination, the API sends the consumer an next_token on every page. This token is used for the next API call and so on. A column or property is used to pivot through the data in the table. You can choose any column that fits the requirement. The main idea is that you have to come up with conditions and parameters that will help you navigate through the table. A common practice is to choose row creation time as a token if the creation time is unique. In the above diagram, created_at column of products table has been used as the token. You can see the API has sent the created_at of the 111th row as the next_token along with 10 products as result. However, token-based pagination requires much less latency if the table gets bigger.
+
+Why? Because this query filters through the table using the condition in the query and starts scanning from the row where the condition is matched. In short, it only reads limit numbers of rows.
+
+
+Cascading failures in distributed systems
+
+Let’s understand this with an example. We have two servers A and B. Both can handle at most 500 requests. Currently, A is serving 400 requests and B is serving 300 requests. Now suddenly B is getting 600 requests. It cannot handle that many requests and crashes. Now we need to route all the requests to the other server i.e., A. But A cannot handle 400 + 600 requests so it also crashes. This is known as cascading failure
+
+
+API Key 
+
+In technical terms, API keys provide to things:
+Client App identification — Identify the application that’s making a call to your backends API.
+Client App authorization — Check whether the calling application has been granted access to call the API.
+
+
+Proxy - forward and reverese 
+
+	Forward - Proxy (also known as forward proxy) is a server that makes “requests” on behalf of a client, thus anonymizing the client from the server. With a proxy server, the server doesn’t know the client. Forward Proxy server hides the identity of client from the server by sending requests on behalf of it.
+
+	Reverse - A reverse proxy acts on behalf of the server, it appears to clients to be an ordinary server. Reverse proxies forward request to one or more ordinary servers that handle the request. The response from the reverse proxy server is returned as if it came directly from the original server, leaving the client with no knowledge of the original server.
+
+	Benefits :
+
+	1. Caching - Whenever a proxy is introduced it brings the benefits of caching with it. The proxy server can cache any data which is not expected to change. Now when another client sends a request for the same content, the proxy server can send back the cached response instead of contacting the server again. Caching has advantages of low latency, reduced network traffic, and higher network bandwidth.
+
+	2. Anonymity
+
+	The final destination which is the YouTube server in this case will not know about the client from which the request originated.
+
+	3. Traffic control
+
+	Proxy servers can help in controlling traffic as all the traffic goes through them, they can block certain content which might not be appropriate for certain reasons.
+
+
+	Benefit of reverse proxy :
+
+	1. Load balancing:
+
+	One of the greatest benefits of a reverse proxy is load balancing among the servers. The reverse proxy can use any load balancing algorithm like round-robin, resource-based, etc. Load balancing can help evenly distribute traffic among servers leading to reliability and availability.
+
+	2. Experimentation:
+
+	A number of times, when a new feature needs to be rolled out it gets deployed in a canary fashion. For example, YouTube wants to test a new interface but they are not sure if the customers would like it more or not. So instead of releasing the new interface to all the customers, an experiment is launched which shows the new interface to a small percentage of users. 
+
+	3. Router/Ingress:
+
+	The reverse proxy can act as an ingress or a router in Kubernetes or micro-services architecture. It can map to actual services running for example if a client requests playlists it directs to YouTube server1 which has the service running for playlists.playlists.
+
+
+Database locking
+
+	1. Exclusive locking
+
+		//A single transaction to book a tickets
+	begin;
+	seatsAvailable() -> Select * from booking where seat_number = ‘A1’ FOR UPDATE
+	bookTickets() -> update booking set customer_id = ‘101’ , seat_status = ‘booked’ where seat_number = ‘A1’;
+	commit;
+	Let’s say I select a seat and proceed to the payment page. At this point the session will acquire a lock, so that no other session is able to read the record or make changes to it. Such kind of locking is called ‘Exclusive Locking’. For any other user session trying to access the locked records from the table, it will have to wait for the lock to be released for the particular record in the table.
+
+	We use ‘FOR UPDATE’ along with SELECT query to acquire exclusive lock.
+
+	2. Shared locking 
+
+	Another type of locking is ‘Shared Lock’ where a session can read the row while it is already being lock-acquired by some other session. However, it cannot make an update until the first session has released the lock.
+
+	We use ‘FOR SHARE’ along with SELECT query to acquire shared lock.
+
+	This kind of locking technique would not be preferable in our scenario. Imagine, multiple users will be reading a particular seat as ‘available’ and paying for it. But due to shared lock implementation, only the user session which acquired the lock first, will be getting the seat.
+
+Tree like structure - Use Composite design pattern
+
+
+
+
+Rate Limiting - 
+
+Kafka and SQS
+
+Kubernetes (Most important)
+
+Prometheus
+
+Circuit breaker (Hytrix as well)
+
+Devspace
+
+Validators
+
+Load balancing
+
+Hashistack(light)
+
+Caching proxy server (NGINX and AWS S3)
+
+Jenkins
+
+Dependency hell problem  
+
+Microservice communication
+
+What happens when we hit google.com
+
+Github actions
+
+Database partitioning
+
+Improving SQL queries
+
+Centralised cache and distributed cache, types of caching
+
+Database indexes
+
+Sharding 
+
+Messaging Queue | Producer-consumer model
+
+Pub-Sub messaging 
+
+Performance metrics and alerting
+
+Database replication | Master-slave | read-writes replica
+
+Consistent hashing
+
+LRU cache
+
+Hbase and HA proxy
+
+NoSQL - Cassandra and others
+
+CAP theorem
+
+Client server architecture
+
+

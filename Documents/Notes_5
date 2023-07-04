@@ -1,0 +1,61 @@
+Notes
+
+Distributed Caching
+
+1. Database Caching
+
+	The Cache can be placed between Application Server and Database. Where access the data from cache instead of main datastore which frequently accesses data in-memory to cut down latency & unnecessary load on it. There is no DB bottleneck when the cache is implemented.
+
+2. User Sessions Storing
+User sessions are mostly stored in the cache to avoid losing the user information in case any of the instances go down.
+If any of the instance goes down, a new instance spins up, reads the user data from the cache & continues the session without having the user notice anything amiss.
+
+3. In-memory Data Lookup
+If you have a mobile / web app front end you might want to cache some information like user profile, some historical data, or some API response according to your use cases. Caching will help in storing such data.
+
+Cache Invalidation :
+
+It does require some maintenance for keeping cache coherent with the source of truth (e.g., database). If any data is modified in the database, it should be invalidated or modified in the cache also; if it is not so, this can cause inconsistent application behaviour.
+
+1. Write through: whenever any “write” request comes, it will come through the cache to the DB. Write is considered successful only iff data is written successfully in the cache and in DB.
+
+2. Write around: Write request goes around the cache straight to DB and acknowledge is sent back, data is not sent to cache. Data is written to the cache when there is the first cache miss.
+
+3. Write back: Write update goes to cache, data is saved in the cache, and acknowledge is send immediately. and then there is one more service that will sink the data to DB.
+
+
+Cache Eviction Policies
+What if our Cache is full ? So, A cache eviction algorithm is a way of deciding which element to evict when the cache is full.
+
+1. First In First Out (FIFO): The cache evicts the first block accessed first without any regard to how often or how many times it was accessed before.
+2. Last In First Out (LIFO): The cache evicts the block accessed most recently first without any regard to how often or how many times it was accessed before.
+3. Least Recently Used (LRU): Discards the least recently used items first.
+I mostly prefer to LRU only. 🙂
+4. Most Recently Used (MRU): Discards, in contrast to LRU, the most recently used items first.
+5. Least Frequently Used (LFU): Counts how often an item is needed. Those that are used least often are discarded first.
+
+
+
+
+Redis
+
+1. Redis is often used as a cache. It can also be used as a storage when the consistency requirements are not high.In addition, redis also provides message subscription, transaction, index and other features. We can also use cluster features to build distributed storage services and realise non strong consistency distributed lock services.
+
+2. Redis has a common advantage when using the above scenarios, that is, fast processing speed (high performance)
+
+3. The reason why redis does not guarantee of consistency is because Redis Cluster can lose writes because it uses asynchronous replication. 
+This means that during writes the following happens:
+
+Your client writes to the master B.
+The master B replies OK to your client.
+The master B propagates the write to its replicas B1, B2 and B3.
+
+Similarly you can improve consistency by forcing the database to flush data to disk before replying to the client, but this usually results in prohibitively low performance. That would be the equivalent of synchronous replication in the case of Redis Cluster.
+
+Basically, there is a trade-off to be made between performance and consistency.
+
+
+
+
+
+

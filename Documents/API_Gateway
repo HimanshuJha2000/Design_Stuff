@@ -1,0 +1,58 @@
+API Gateway
+
+
+API gateways are a layer that sits between the client and the services it relies on. Sometimes called a “reverse proxy”, they act as a single point of entry from the client to its services.
+They are the reception desk at the front of an office building. Routing calls, stopping unexpected visitors, and making sure parcels get to the right place.
+
+API Gateway
+Let’s look at a practical example of an API gateway. One great example is the wonderful work developed by Netflix. Netflix has a lot of specific challenges to its core offering, but perhaps the biggest challenge is the simple number and type of devices that can access the service. Televisions, phones, laptops, tablets, and other devices of all different sizes and resolutions all use different apps to request video content in various sizes and formats.
+
+To resolve these requests, Netflix utilizes an approach known as the Federated Gateway. In this solution, there is an API gateway that takes in a request and then routes those requests to one of three core entities:
+
+The Movie Entity: The shows, movies, shorts, etc., that make up the Netflix offerings
+The Production Entity: A studio production that contains locations, vendors, and more.
+The Talent Entity: All of the associated talent who work on the movie.
+By creating a federated architecture, a client request enters the system and is met by a GraphQL Gateway. From here, the request is distributed to the microservices through a federated system using the Schema Registry as a source of truth, with the final coalesced response sent through the gateway as a single response.
+
+Nice Artcile on loadbalancing and API gateway use in Netflix :
+https://nordicapis.com/whats-the-difference-between-an-api-gateway-and-a-load-balancer/
+
+
+Key benefits of an API Gateway
+Earlier I mentioned that the core use case is routing. This and many benefits center around abstracting implementation details away from the clients themselves and to keep them in one place-the gateway. Gateways can handle a variety of shared tasks such as:
+
+Authentication and authorization: This can be as simple as ensuring that a user has access to a resource, or as complex as handling a full auth flow.
+Processing and validating input: They can be validated and processed any data coming from the clients before sending it to a service. This avoids requiring the client to handle the overhead that comes along with data processing.
+Transforming responses: Just as the gateway can process data before sending it to third-party APIs or microservices, it can also transform responses before they are sent to the client. In our example above, this may result in determining which data shape a specific client needs.
+Telemetry: The gateway acts as a central point to manage all logging and metric gathering. As all requests and responses go through this central point, it becomes a valuable place to drop in telemetry tooling.
+Service obfuscation: By decoupling the services from the clients, API gateways not only protect services from client problems, but they also allow clients and services to exist independently from one another. Services can be changed or replaced without directly affecting the client.
+
+
+
+An API gateway is the conductor that organises the requests being processed by the microservices architecture to create a simplified experience for the user. It’s a translator, taking a client’s many requests and turning them into just one, to reduce the number of round trips between the client and application. An API gateway is set up in front of the microservices and becomes the entry point for every new request being executed by the app. It simplifies both the client implementations and the microservices app.
+
+
+An API Gateway serves the following functions:
+
+With authentication it prevents overuse and abuse of your APIs
+Analytics and monitoring tools can be configured on the gateway itself.
+It provides a single endpoint to external users irrespective of the number of microservices running within your system.
+Users don’t need to change anything in case of refactoring, addition/removal of resources etc as long as the contract remains same.
+It also acts as a traffic controller by forming a single entry point for all requests.
+
+Disadvantages of API Gateway
+Latency: The added network hop to the architecture accounts for an increase in latency throughout the system.
+SPoF: The API Gateway being the single entry point for all requests acts as a Single Point of Failure(SPoF). This can be mitigated to some end by having multiple API Gateways and split the calls using Load Balancer and Elastic IP.
+Added Complexity: The API Gateway can get complex when the end users can be of various kinds like IoS, Android, Web, etc. In this case we can add multiple configurations for different entry points. This architecture is also known as “Backend for Frontend” pattern.
+
+
+Kong and Amazon API Gateway are two of the most popular API Gateways in the market.
+
+AWS describes Amazon API Gateway as “Create, publish, maintain, monitor, and secure APIs at any scale”. Amazon API Gateway handles all the tasks involved in accepting and processing upto hundreds of thousands of concurrent API calls, including traffic management, authorisation and access control, monitoring, and API version management.
+
+Kong is detailed as “Open Source Microservice & API Management Layer”. Kong is a scalable, open source API Layer (also known as an API Gateway, or API Middleware) & is built on top of NGINX. Kong controls layer 4 and 7 traffic and is extended through Plugins, which provide extra functionality and services beyond the core platform.
+
+
+API Gateway patterns : https://medium.com/@BearerSH/what-is-an-api-gateway-9a022a97ff40
+
+API Gateway system design perspective : https://medium.com/geekculture/system-design-basics-api-gateway-6e3387698f92

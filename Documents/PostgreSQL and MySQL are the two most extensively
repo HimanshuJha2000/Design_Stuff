@@ -1,0 +1,47 @@
+PostgreSQL and MySQL are the two most extensively used RDBMSs. This article is my take on how to choose the database for your use case.
+
+Differences
+Write Operation: Postgre writes are slower compared to MySQL because of its indexing algorithm and hence their bin logging strategy.
+Read Operation: Postgre has better implementation for complex queries. Secondary Index queries are also faster in Postgre.
+Data replication: Postgre is slower and the bin logs are more verbose. When there are more indexes on a table, then bin logs are larger, and more bandwidth is used to stream the logs to the replicas.
+Caching: MySQL has its custom implementation of LRUs, while Postgre relies on the Linux cache. This again makes MySQL caching more efficient.
+Connection Handling: MySQL uses thread-per-connection compared to process-per-connection used by PostgreSQL. Memory overhead for thread-per-connection is much lesser compared to process-per-connection.
+
+When would I use Postgre
+Postgre is best suited for cases where the read speeds are critical and when there is complex queries to be executed. Postgre also is favoured for GeoSpatial data storage and queries. Postgre DB is highly efficient and fast in handling complex queries. Postgre would be my goto DB if the application/service is more analytical and relies on faster results on complex queries.
+
+When would I use MySQL
+MySQL is best suited for transactional operations. Also, since the writes are much faster compared to Postgre, and read speeds are good (except for complex queries), my goto DB for any application would by MySQL. Efficient replication strategy by MySQL and better speeds are also my key reasons to choose MySQL for most of my applications.
+
+
+
+Loadbalancing Algos
+
+HA proxy, NGINX Plus, Hashicorp Consul, Amazon ELB
+
+1. Round robin
+2. Round robin with weighted server
+3. Least connections
+4. Least response time
+5. Source IP hash
+6. URL hash
+
+
+Caching
+
+
+Types of cache 
+1. Application server cache - store in local storage but due to multiple servers we can't have exact cache everywhere but it's fastest. 
+2. Distributed cache - Uses consistent hashing to generate a hash and then with hash looks for the node which has that cache.
+3. Global cache
+4. CDN cache - CDN is always used when we have some static data to show. In between S3 and CDN, CDN can be used in front layer for cache and then if it's not present in CDN then it will go to S3 for getting it from cloud.
+
+Cache Invalidation 
+
+1. Write through cache - Data is written in cache first and DB at the same time. 
+Con - Higher latency
+2. Write around cache - data is written directly to storage, bypassing the cache
+
+
+Important design patterns - SAGA(distributed transactions in microservices - payment and order service example), Strategy, decorator, factory
+

@@ -1,0 +1,96 @@
+
+												--------RDBMS --------
+
+Data replication vs data mirroring 
+
+Mirroring is the copying of data or database to a different location. While replication is the creation of data and database objects to increase the distribution actions.
+
+Benefits of data replication :
+
+1. Improving the availiability of data -  enhances the resilience and reliability of systems by storing data at multiple nodes across the network.
+
+2. Increase the speed of data access - Placing replicas on local servers provides users with faster data access and query execution times.
+
+3. Enhance server performance - Database replication effectively reduces the load on the primary server by dispersing it among other nodes in the distributed system, thereby improving network performance. By routing all read-operations to a replica database, IT administrators can save the primary server for write-operations that demand more processing power.
+
+4. Accomplish data recovery - Data replication facilitates the recovery of data which is lost or corrupted by maintaining accurate backups at well-monitored locations
+
+
+
+Types of data replication:
+
+1. Full table replication - This means that the entire data is replicated. This includes new, updated as well as existing data that is copied from source to the destination. This method of replication is generally associated with higher costs since the processing power and network bandwidth requirements are high
+
+2. Transactional replication - In this method, the data replication software makes full initial copies of data from origin to destination following which the subscriber database receives updates whenever data is modified
+
+3. Snapshot replication - In Snapshot replication, data is replicated exactly as it appears at any given time. Unlike other methods, Snapshot replication does not pay attention to the changes made to data. This mode of replication is used when changes made to data tends to be infrequent; for example performing initial synchronizations between publishers and subscribers
+
+4. Merge replication - This type of replication is commonly found in server-to-client environments and allows both the publisher and subscriber to make changes to data dynamically. In merge replication, data from two or more databases are combined to form a single database thereby contributing to the complexity of using this technique.
+
+5. Key-based incremental replication - Also called key-based incremental data capture, this technique only copies data changed since the last update. Keys can be looked at as elements that exist within databases that trigger data replication. Since only a few rows are copied during each update, the costs are significantly low.
+However, the drawback lies in the fact that this replication mode cannot be used to recover hard deleted data, since the key value is also deleted along with the record.
+
+
+Data replication in DBMS :
+
+1. Full replication means that the complete database is replicated at every site of the distributed system. This scheme maximizes data availability and redundancy across a wide area network.
+For example, users in a cross-country network have access to the complete database from an Asia based server if the European or North American server experiences a technical difficulty.
+
+
+2. Partial replication occurs when only certain fragments of the database are replicated based on the importance of data at each location. Here, the number of copies can range from one to the total number of nodes in the distributed system
+
+3. No Replication
+
+
+
+Amazon RDS Replication
+
+Amazon enables you to create one or more read-only copies of your database instance.
+Replication can be within the same AWS Region or in a different AWS Region.
+Read replicas make it easy to take advantage of replication functionality to scale out beyond the capacity of a single DB instance for read-only database workloads.
+You can have up to five Read Replicas per master, each with its own DNS endpoint.
+Read replicas are implemented using asynchronous replication, so reads are eventually consistent.
+Applications must update the connection string to leverage read replicas.
+
+
+
+Amazon RDS Multi-AZ (Disaster Recovery)
+
+
+RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different AZ.
+
+1. With Multi-AZ, your data is synchronously (at the same time) replicated to standby in a different AZ
+
+2. One DNS name — Endpoint of DB instance remains the same after a failover, the application can resume database operations without manual intervention.
+
+Multi-AZ is a High Availability feature and NOT a scaling solution for read-only scenarios; a standby replica can’t be used to serve read traffic. To service read-only traffic, use a Read Replica.
+
+Primary DB instance is synchronously replicated across Availability Zones to a standby replica to provide
+data redundancy,
+eliminate I/O freezes during snapshots and backups
+and minimize latency spikes during system backups.
+DB instances may have increased write and commit latency compared to a Single AZ deployment, due to the synchronous data replication
+Transaction success is returned only if the commit is successful both on the primary and the standby DB
+
+When a problem is detected on the primary instance, it will automatically failover to the standby in the following conditions:
+
+The primary DB instance fails
+Unreachable due to loss of network connectivity
+An Availability Zone outage or busy and unresponsive
+Modified (eg. The DB instance server type is changed)
+The operating system of the DB instance is undergoing software patching.
+A manual failover of the DB instance was initiated using Reboot with failover.
+
+
+Nice article : https://jayendrapatil.com/tag/synchronous-replication/#:~:text=RDS%20automatically%20creates%20a%20primary,as%20the%20failover%20is%20complete.
+
+
+RDS — From Single-AZ to Multi-AZ
+
+
+To Create multi-AZ from the primary instance, we need to just click on “modify” for the database and select Multi-AZ
+It is a zero-downtime operation meaning we don’t have to stop the DB.
+It is important to understand what happened internally behind the scenes when you changed the DB instance from single AZ to multi-AZ
+A snapshot is taken by RDS automatically
+A new DB is restored from the snapshot in a new AZ
+Synchronization is established between the two databases

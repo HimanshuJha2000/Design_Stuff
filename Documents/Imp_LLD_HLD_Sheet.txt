@@ -1,0 +1,216 @@
+
+1. Design a Tiny URL
+2. Design API Rate limiter
+3. Designing facebook new
+
+
+
+LLD Principles
+
+1. SOLID
+   1. SRP: Single Responsibility Principle (Class should be changed only for one reason)
+   2. OCP: Open Closed Principle (Class should be open for extention closed for modification)
+   3. LSP: Liskov Substitution Principle (Two subclasses of same interface/class should be interchangeable)
+   4. ISP: Interface Segregation Principle (Keep interface methods to the point and dont add too many interfaces that aren't needed in all the subclasses)
+   5. DIP: Dependency Inversion Principle (Always create object of the interface instead of the concrete class)
+2. KISS
+   1. Keep it simple stupid
+3. YAGNI - You are not gonna need it
+4. DRY - Don't repeat yourself
+
+LLD:
+https://www.youtube.com/watch?v=1wnAEemTNZ0
+Concepts and Coding Channel
+
+https://igotanoffer.com/blogs/tech/system-design-interviews
+
+Major Components:
+
+1. Feed
+2. Analytics
+3. Profiles
+4. Notifications
+5. Chat
+6. Search
+7. Maps
+8. Finding friends/connections
+9. Video/Audio calling
+10. Payments
+
+Extra Questions
+
+1. TikTok
+2. Instagram
+3. Netflix/PrimeVideo/Hotstar
+4. Tinder
+5. Whatsapp/Fb Messenger
+6. TinyURL
+7. Uber/Ola
+8. Airbnb/OYO
+9. Zoom
+10. Swiggy/Zomato
+11. Amazon/Flipkart
+12. Google Maps
+13. Facebook
+14. Twitter
+15. Elevator System
+16. Parking Lot
+17. Dropbox/Google Drive
+18. Library management
+19. Google Search
+20. Spotify
+21. Calendar
+22. News Blog
+23. IRCTC
+24. Google photos
+25. Gmail
+26. Payment Gateway
+27. File System
+28. Rate Limiter
+29. Games
+    1. Snake
+    2. Chess
+    3. Tic-Tac-Toe
+    4. Poker/Cards
+    5. Boggle
+    6. Minesweeper
+
+Specific Feature System Design
+
+1. News Feed
+2. Analytics
+3. Distributed Notification System
+4. Distributed Web Cache
+5. Autocomplete
+6. API
+7. Distributed ID generator
+8. Distributed Job Scheduler
+
+Things to ask in HLD System Design Interview:
+
+1. Know the customer of the Sytem.
+2. Squence of Events.
+3. Which module of the System to focus on.
+4. Scale of the System (Will further help in making decisions like CDN to be used or not.)
+5. Apply CAP theorem
+6. Design the APIs (Exact Request and Responses)
+7. Microservices
+8. Communication Protocols (HTTP, SSL, Websockets)
+9. Exact Data the system will keep (user data etc.)
+10. Data flow (Which Microservice will be aware of which data)
+11. Which Db to use?
+12. Scaling (Vertical and Horizontal)
+13. Caching, Sharding, Consistent Hashing
+14. Failure and Fault Tolerance
+15. Health Checks
+16. Logging and Monitoring
+17. Security
+18. DS and Algo
+
+Things to learn for HLD Interviews:
+
+1. Capacity Esimation (Practice Calculations of 2^x, 2^10s etc )
+2. HTTPs methods (GET, PUT, POST etc)
+3. Websockets
+4. Polling (short and long)
+5. Server Sent Events
+6. Horizontal and Vertical Scaling
+7. Latency and Throughput
+8. CAP theorem
+9. Load Balancing
+10. Proxies (Forward and Reverse)
+11. Consistent Hashing
+12. SQL vs NoSQL
+13. Storage
+14. Indexing
+15. Replication and Sharding
+16. Caching (Cache Hit, miss etc. Cache eviction policy)
+17. Message Queues and Pub Sub
+18. Resiliency (Failure and Fault Tolerance)
+19. Paging and Filtering
+20. Rate Limiting
+21. Logging and Monitoring
+22. Transactions
+
+Things to learn for LLD Interviews:
+
+1. OOPs
+2. SOLID Principles
+3. Design patterns
+4. Class Diagrams
+5. UML conventions
+6. Sequential And Use Case diagrams
+7. Test Cases
+8. Multithreading
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+▪ What is a DBMS, and why is it important?
+▪ Differentiate between a database and a DBMS.
+▪ What are the ACID properties in DBMS?
+▪ What is normalisation in DBMS?
+▪ Explain the different types of database models.
+▪ What is a primary key and a foreign key?
+▪ What is indexing in DBMS?
+▪ Describe the types of joins in SQL.
+▪ What is a transaction in DBMS?
+▪ What are the advantages and disadvantages of using a relational database?
+▪ How does a DBMS ensure data consistency?
+▪ What is the purpose of the COMMIT and ROLLBACK statements?
+▪ Explain the concept of data integrity.
+▪ Describe the process of database backup and recovery.
+▪ What is the difference between clustered and non-clustered indexes?
+▪ How does a DBMS handle concurrent transactions?
+▪ Explain the concept of deadlock in DBMS.
+▪ Describe the concept of data warehousing.
+▪ What is the difference between OLTP and OLAP?
+▪ How would you optimize a database query for better performance?
+▪ What is a schema in DBMS?
+▪ Explain the concept of data normalisation.
+▪ What is a stored procedure?
+▪ How does indexing affect database performance?
+▪ Describe the concept of data mining.
+▪ What is the difference between a view and a table?
+▪ Explain the concept of referential integrity.
+▪ Describe the concept of a trigger in DBMS.
+▪ What are the different types of database constraints?
+▪ How would you handle data replication in a distributed database system?
+▪ Explain the concept of data warehouse architecture.
+▪ What is the difference between a heap and a clustered table?
+▪ How does a DBMS handle security and access control?
+▪ What is a deadlock, and how can it be resolved?
+▪ Describe the concept of data normalisation forms (1NF, 2NF, 3NF).
+▪ What is a composite key?
+▪ Explain the concept of a candidate key.
+▪ What is the difference between a left join and an inner join?
+▪ Describe the concept of data encapsulation.
+▪ What is the purpose of a database index?
+▪ Explain the concept of database transaction isolation levels.
+▪ What is the role of a database administrator (DBA)?
+▪ How does a DBMS handle data concurrency and locking?
+▪ Describe the concept of database sharding.
+▪ What is the difference between a unique key and a primary key?
+▪ Explain the concept of data redundancy.
+▪ What is the purpose of a data dictionary?
+▪ Describe the concept of database normalisation forms (BCNF, 4NF, 5NF).
+▪ What is the difference between a view and a materialised view?
+▪ How does a DBMS handle query optimisation?

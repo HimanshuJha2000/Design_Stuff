@@ -1,0 +1,90 @@
+Great coding stuff
+
+Types of database 
+Non RDBMS
+-NoSQL(column based)
+-Document based
+-Key-value
+-graph based
+
+SOLID Principles - https://www.youtube.com/watch?v=XI7zep97c-Y&ab_channel=Concept%26%26Coding
+
+latency, throughput - https://medium.com/backendarmy/introduction-to-system-architecture-design-fcd4f327b6c9
+
+Network protocols - https://www.youtube.com/watch?v=JwTiZ9ENquI&ab_channel=Concept%26%26Coding
+
+Suggestion system - https://www.youtube.com/watch?v=UuTFwgd8U9A&ab_channel=Concept%26%26Coding
+
+
+Increase reliability - https://levelup.gitconnected.com/how-to-design-reliable-microservices-5efba55172da
+
+Two phase commit, Eventual consistency - https://medium.com/garantibbva-teknoloji/data-consistency-in-microservices-architecture-5c67e0f65256
+
+Different types of isolation level on locks while transacting:
+https://medium.com/system-design-concepts/transaction-and-locks-b9afd06e8fdf
+- Read uncommitted
+- Read committed
+- Repeatable read
+- Serializable
+
+In confluence, multiple users can edit an article and can publish at different times. How database locking works for them? They use optimistic lock for database.
+
+Reader writer problem - https://stevenpcurtis.medium.com/the-readers-writers-problem-995a2a89d0ab
+
+
+Processes, Threads, Deadlock, Semaphores -  https://medium.com/geekculture/processes-threads-deadlock-semaphores-and-more-f70be5395ef6 
+
+
+eventual consistency and strong consistency - https://medium.com/ssense-tech/handling-eventual-consistency-with-distributed-system-9235687ea5b3
+https://medium.com/system-design-blog/eventual-consistency-vs-strong-consistency-b4de1f92534d
+
+Idempotent APIS - POST - https://medium.com/@saurav200892/how-to-achieve-idempotency-in-post-method-d88d7b08fcdd
+
+Websockets, server sent events, Polling - https://medium.com/codex/getting-started-with-server-sent-events-and-understanding-when-to-use-polling-websockets-and-sse-87465f3bcf63
+
+
+
+In LLD, think of using interface, enums, inheritance, relationships, Class diagram, flow diagram, Api doc, 
+
+
+Performance of microservice - https://www.jrebel.com/blog/performance-problems-with-microservices
+
+
+Replication in postgres - https://medium.com/moveax/how-postgresql-replication-works-6288b3e6000e
+Streaming replication, a standard feature of PostgreSQL, allows the updated information on the primary server to be transferred to the standby server in real time, so that the databases of the primary server and standby server can be kept in sync.
+
+Is Postgres replication synchronous?
+Synchronous Replication. PostgreSQL streaming replication is asynchronous by default. If the primary server crashes then some transactions that were committed may not have been replicated to the standby server, causing data loss. The amount of data loss is proportional to the replication delay at the time of failover.
+
+MySQL Replication
+https://kovidrathee.medium.com/mysql-replication-primer-980782e9054c
+
+Multi-AZ instances.
+
+Increased IOPS issue - https://sukalpomitra.medium.com/the-curious-case-of-high-iops-in-aws-rds-85eed2434162
+
+Master-slave database https://medium.com/bina-nusantara-it-division/the-master-slave-database-concept-for-beginners-8a3884896b14
+
+
+Important article : https://rai-skumar.medium.com/how-to-approach-system-design-interviews-853f9ae5e8
+
+
+Design patterns :
+https://www.youtube.com/watch?v=FM_pRefVCB4&list=PLTCrU9sGybuo3HIJUKusfhB_m7QucuDTQ&ab_channel=sudoCODE
+
+BookMyShow - https://www.youtube.com/watch?v=wCyzvDn3Pp8&ab_channel=Concept%26%26Coding
+
+CAP theorem - https://www.youtube.com/watch?v=3qRBeZsUa18&ab_channel=Concept%26%26Coding
+
+Important backend - https://github.com/arialdomartini/Back-End-Developer-Interview-Questions
+
+Kafka
+https://www.youtube.com/watch?v=Y2coybua2A0&list=PLxv3SnR5bZE82Cv4wozg2uZvaOlDEbO67&index=3&ab_channel=BrijeshGupta
+
+Designing - https://www.youtube.com/watch?v=iJLL-KPqBpM&list=PL0evysyBWYO4n2wkp1UgqpUfSsXnu5EMf&index=2&ab_channel=SystemDesignInterview
+
+Database transactions
+https://medium.com/@pulkitent/system-design-database-transactions-acid-part-1-45de4c350ff2
+
+Rate limiting algos
+https://medium.com/geekculture/rate-limiting-a-good-approach-for-scalable-system-45e338b77ffc

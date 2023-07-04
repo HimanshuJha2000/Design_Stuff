@@ -1,0 +1,7 @@
+Design a calendar service that can create events for users that has following requirements
+1. Users can shift their shift timings or create busy slots. It's possible for users to have more than one shift in a day
+2. Users can fetch events of themselves and other users.
+3. Users can create events with other users for a defined start time and end time and delete events created by themselves.
+4. Organiser of an event can fetch the most favourable upcoming empty slot for a given set of users and a particular duration.
+5. For instance, user A would like to check the favourable slot with user B, user C to set an event of 4 hours duration. This would require user A to check the upcoming events in his/her calendar as well as for user B, User C.
+6. Users can fetch events where they have conflicts for themselves for a particular day

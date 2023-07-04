@@ -1,0 +1,108 @@
+1. Implement rate limter
+2. Scaling to 1M users
+3. Public interface usable
+
+
+
+1. Rate limiting manager
+2. Rate limiter ->
+
+class RateLimitingManager() {
+	rateLimiter RateLimiter;
+	user User
+	request Request
+
+	Public: 
+	RateLimitUser()
+	RemoveRateLimitedUser()
+	IncreaseThreshold(user)	
+}
+
+Enum request {
+	HTTP
+	GRPC
+}
+
+class RateLimter {
+
+	public :
+	Fetchuser() -> TypeOfUser
+	RateLimitUser(user, request) -> bool
+	RemoveRateLimtedUser(user) -> bool
+
+};
+
+RDBMS or Non-RDBMS
+
+ACID 
+
+Locking - > Exclusive locking, shared locking- 
+multiple systems -> Single user
+
+class User {
+	id string
+
+	public :
+	policies Policies
+	isUserSignedIn bool
+	isUserRatelimted bool
+};
+
+class AnonyUser : public User{
+	AnonyUser () {
+		time Time
+		isUserSignedIn = false
+		policies.noOfReqs = 10;
+		policies.interval = time;
+		isUserRatelimted = false;
+	}
+
+
+};
+
+class SignedInUser : public User {
+	SignedInUser () {
+		time Time
+		isUserSignedIn = true
+		policies.noOfReqs = 10;
+		policies.interval = time;
+		isUserRatelimted = false;
+	}
+};
+
+Class Policies {
+	int noOfReqs;
+	Time interval;
+}
+
+class Time {};
+
+3. User -> isUserRatelimted
+SignedInUser, AnonyUser
+4. SignedInUser -> policies (No of requests - 10, Interval -  interval_time), isUserRatelimted
+5. AnonyUser -> policies (No of requests - 4, Interval -  1 hour)
+
+
+
+
+Scaling :
+	
+			redis or redistime
+User --> RateLimiter microservice -> End system micro
+
+
+Unhappy flow :
+
+1. DDOS attack
+2. 1 M users
+
+
+
+User -> Event driven archicture -> Consumer ->  load balancer(NGINX, HAProxy) ->  Rate limter micro service 
+		Kafka Brokers, Offset : -> 			-> 								  -> 
+
+
+
+
+
+
