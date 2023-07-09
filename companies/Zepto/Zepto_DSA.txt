@@ -1,0 +1,170 @@
+Given a matrix of dimension M * N where each cell in the matrix can have values 0, 1 or 2 which has the following meaning:  
+
+0: Empty cell
+1: Cells have fresh oranges
+2: Cells have rotten oranges
+Determine what is the minimum time required so that all the oranges become rotten. A rotten orange at index (i,j ) can rot other fresh oranges which are its neighbours (up, down, left and right). If it is impossible to rot every orange then simply return -1.
+
+Input:  arr[][C] =  { {2, 1, 0, ,2 1}, 
+					  {1, 0, 1, 2, 1},
+					  {1, 0, 0, 2, 1}} };
+Output: 2
+1 2 1
+2 2 2
+   
+
+
+Explanation: At 0th time frame:
+{2, 1, 0, 2, 1}  
+{1, 0, 1, 2, 1}
+{1, 0, 0, 2, 1}
+O(n*m)
+
+Queue - (0,0), (0, 3), (1, 3 )
+
+O(m*n) 
+
+{2, 2, 0, 2, 1}
+{2, 0, 1, 2, 1}
+{1, 0, 0, 2, 1}
+
+{2, 1, 0, 2, 1}
+{1, 0, 1, 2, 1}
+{1, 0, 0, 2, 1}
+
+
+
+
+At 1st time frame:
+{2, 2, 0, 2, 2}
+{2, 0, 2, 2, 2}
+{1, 0, 0, 2, 2}
+At 2nd time frame:
+{2, 2, 0, 2, 2}
+{2, 0, 2, 2, 2}
+{2, 0, 0, 2, 2}
+
+
+
+
+
+
+
+
+
+Int minimumTimeRequired(vector<vector<int>> matrix) {
+	queue<pair<int, int>> direction = {{0, 0}, {0,1}, {-1, 0}, {0, -1}};
+	queue<pair<int, int>> pq;
+
+
+	Int m = matrix.size();
+	Int n = matrix.size[0];
+	for(int i=0; i<m; i++) {
+		for(int j=0; j<n; j++) {
+			if(matrix[i][j] == 2) {
+				pq.push(pair<int, int> (i, j));
+			}
+			if(matrix[i][j] == 1) {
+				freshOrangeC++;
+			}
+		}
+}
+
+if(pq.empty()) {
+	Return - 1;
+}
+
+Int timeRequired = - 1;
+while(!pq.empty()) {
+	Int size = pq.size();
+		while(size--) {
+			
+			pair<int, int> p = pq.front();
+			Int x = p.first;
+			Int y = p.second;
+			pq.pop();
+
+			for(auto i: direction) {
+				Int Dx = i.first;
+				Int Dy = i.second;
+				Int NearX = x + Dx;
+				Int NearY = y + Dy;
+				If (NearX>= 0 && NearX <m && NearY>=0 && NearY<n && matrix[NearX][NearY] == 1) {
+					matrix[NearX][NearY] = 2;
+					pq.push(pair<int, int>{NearX, NearY});
+				}
+			}	
+		}
+		timeRequired++;
+}
+Return timeRequired;
+}
+
+
+
+
+
+Given an unsorted array arr[0..n-1] of size n, find the minimum length subarray arr[s..e] such that sorting this subarray makes the whole array sorted.
+Example: If the input array is [10, 12, 20, 30, 25, 40, 32, 31, 35, 50, 60]
+Result =[3, 8].
+
+
+[10, 12, 20, 30, 25, 40, 8, 32, 31, 35, 50, 60]
+
+[10, 12, 20, [30, 25, 40, 8,32, 31, 35], 50, 60]
+
+10, 12, 20, [8, 25, 30, 31, 32, 35, 40 55,] 50, 60
+
+
+{sorted}{unsorted}{sorted}
+
+
+
+
+
+vector<int> lengthOfMinSubArray(vector<int> arr) {
+	Int start = 0, end = arr.size()-1;
+	for(int i =0; i<arr.size(); i++) {
+		if(i == 0 && arr[i+1] < arr[i] ) {
+			Start = i;
+		}
+ Else if (arr[i+1] < arr[i] && arr[i-1] < arr[i]) {
+	Start = i;
+}
+
+	}
+
+for(int i =size()-1; i>=0; i++) {
+if(i == size()-1 &&  arr[i+1] < arr[i]) {
+			End = i;
+		}
+Else if (arr[i+1] < arr[i] && arr[i-1] < arr[i]) {
+	End = i;
+}
+	}
+	If (start == end) {
+		Return {-1};
+	}
+
+	// Find the min and max of the unsorted array which will be stored in maxUn, minUn
+
+	// Find the min from left part of array
+
+// Find the max from right part of array
+
+//Comparison of whether the maxUn is greater than max from right array, if yes then update the end pointer
+
+//Comparison of whether the minUn is smaller than min from left array, if yes then update the start pointer
+
+
+
+}
+
+
+
+
+
+
+
+
+
