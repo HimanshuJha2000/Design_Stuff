@@ -1,0 +1,130 @@
+Create a service to manage simple task that runs asynchronous.
+
+1.  Starting the job => n => you get a id back
+ 
+Request: /start?n=100 
+Response: {statuscode: 200, id: "_Adwda"}
+2.  Pausing it => /pause
+Request: /pause?id=someid 
+Response: {statuscode: 200}
+3.  Resume it => /resume
+Request: /resume?id=someid 
+Response: {statuscode: 200}
+4.  Terminate => /terminate
+Request: /terminate?id=someid 
+Response: {statuscode: 200}
+5.  Status => /status
+a.  paused/terminated/running (if running, at what stage)
+Request: /status?id=someid 
+Response: {statuscode: 200, jobStatus: RUNNING, cursor: 20}
+
+Job is  => iterate till n in interval of 1 second
+
+Implementation priorities:
+1.  Writing code in maintainable fashion
+
+
+
+type JobService struct {
+}
+
+
+var mutexJob sync.Mutex
+
+
+var JobServiceObj JobService
+
+
+var ch chan int
+
+
+func (js *JobService) StartJobImpl(timeToRun int) (map[string]interface{}, error) {
+jobID := uuid.new()
+jobsMap := internal.GetJobsMap()
+
+
+job := models.Job{
+ID: jobID,
+RunTime: time.Duration(timeToRun * time.Second),
+IsValid: true,
+Status: internal.START_JOB,
+}
+
+
+PID := internal.GetLatestID()
+jobsMap[PID] = job
+
+
+//mutexJob.Lock()
+// Logic for running it till n seconds
+err := RunJob(timeToRun)
+
+
+run
+
+
+if err != nil {
+return map[string]interface{}{
+"message": "Job running failed",
+}, err
+} else {
+return map[string]interface{}{
+"message": "Job successfully ran",
+}, err
+}
+}
+
+
+func RunJob(timeToRun int) {
+for i := 0; i < timeToRun; i++ {
+time.Sleep(1 * time.Second)
+}
+}
+
+
+
+
+func PauseJob() {
+
+
+}
+
+
+
+Ecommerce scenario -> customer, product, cart
+Using basic information, design a sql db using sql datatypes showing the relationship between the above entities 
+
+
+
+
+Customer
+
+Name
+ID
+Email
+Address
+PhoneNo
+CartID
+
+
+
+Product
+
+ID, 
+ProdName,
+ProdType
+Specifications,
+ProductPrice
+
+
+Cart
+
+
+Card_ID,
+Customer_ID,
+Product_ID
+Quantity_Product_ID
+
+
+
+	"task_cursor_status" : task.Cursor,
