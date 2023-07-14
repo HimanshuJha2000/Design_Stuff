@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+/*
+N rows, M cols
+*/
+
+
+
+2 D mtrix - 0s(empty space) and 1s(block)
+1 1 1 0 1 
+0 1 0 1 1 
+1 0 1 0 0
+
+
+row0[][] = [[1,0], [2,1]]
+
+
+
+O(m*n)
+
+
+0 0 0 0 0
+1 1 0 1 1
+1 1 1 1 1
+
+[[0,0],[0,1], [1,1], [0,2], [0,4], [1,4]]
+
+vector<int><int> solution(vectro<int><int> A) {
+  int rowS = A.size();
+  int colS = A[i].size();
+  vector<int><int> ans;
+  for(int i=colS-1; i>=0; i--) {
+    bool boolO = false;
+    for(int j=rowS-1; j>=0; j--) {
+      if(A[i][j] == 0)
+      {
+        bool0 = true;
+      }  
+      if(bool0 && A[i][j] == 1) {
+        ans.push_back(vector<int>{i,j});
+      } 
+      continue;
+    }
+  }
+  return ans;
+}
+
+
+int main() {
+  cout << foo(2+2);
+  return 0;
+}
