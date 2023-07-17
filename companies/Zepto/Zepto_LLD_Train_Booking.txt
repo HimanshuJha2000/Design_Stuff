@@ -1,0 +1,66 @@
+Design Train Ticket Booking Platform like IRCTC 
+
+1. Solid Functional Requirements.
+2. DB Schemas. 
+3. Relationships among schemas. 
+4. Solving the requirements with the DB Schemas & Relationships
+5. Non Functional Requirements [IF TIME PERMITS]
+
+1. User should be able to login/register
+2. User should be able to select from and to stations(search), date
+3. User should be able to see all filtered trains
+4. User should be able to select seats
+5. User should be able to make payment(successful)
+6. User should be download the ticket
+7. User should notification of ticket booking
+
+
+
+Classes
+
+User - ignored
+Train - TrainNo, Train_name, Train_Arrival, Train_Destination, Arrival_time, departure_time, List<Travellers> travel, 
+Ticket - 
+Payment - 
+Notifications - ignored 
+SystemManager - ignored
+
+
+
+Train
+
+TrainNo(P_Key), Train_name, Train_Arrival, Train_Destination, Arrival_time
+
+Traveller
+travellerID int, TrainNo(Foreign_key) int, traveller_name string, traveller_details,
+
+Traveller-seat_linker
+Availability string, TravellerID (froeign key), SeatID(foreign_key), 
+
+Seat_Details
+SeatID(P_key), Seat_No int, Coach_Type string, TrainID int (foreign key)
+
+Traveller_details - metadata
+
+Schedule
+
+Scheduler_ID(P_Key), trainID(int), TrainRoute , ATime(time),DTime(time), 
+
+TrainStations
+
+ID(P_key), StationName string, TrainID(f_key), 
+
+// TrainStationAlter
+
+
+
+From - StationA To - StationB
+
+
+
+
+ENUMs
+
+SMS/Whatsapp..
+
+
