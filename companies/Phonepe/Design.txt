@@ -1,0 +1,50 @@
+Functional requirements
+
+User should be able to browse existing questions and answers
+User should be able to ask questions
+Other users should be able to answer these questions
+Answers can have nesting as well(thread part)
+Users can upvote and downvote the posts, nested comments as well
+User should be able to create subreddit
+Other users can be able to join those reddits
+Users should have karma recorded
+User can receive notification 
+User should be able to see the feed even when he’s not logged in
+User should be able to search for the subreddit and search the questions
+
+Optional : Admins of subreddit (protected) might give write(ask questions, mod privileges) to
+By default write and read privileges to everyone in subreddit, but there can be write privileges are not granted initially.
+ 
+
+Actors
+
+User - Signed_User, Unsigned_User
+
+Entities
+
+User - Signed_User, Unsigned_User
+Question - 
+Subreddit - 
+Answer - 
+Comment
+Notification 
+
+
+Schema
+
+
+User -(Pkey) ID, User_name(string), Email, Karma(int)
+
+Question - ID, Authord_ID(f_key), Content(string), Title(string), Tag(string), Upvotes(int), Downvotes(int), Subreddit_ID(f_ley), 
+
+Answer - Ans_ID, Q_ID(f_key), Content(string), 
+
+
+
+-
+Subreddit - Sub_ID(p_key), 
+
+
+
+
+
