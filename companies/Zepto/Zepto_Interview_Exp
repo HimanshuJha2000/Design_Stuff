@@ -1,0 +1,50 @@
+Company: Zepto
+Position: Software Engineer 2 (different from SSE role that they have)
+Location: Bangalore
+
+Round 1: DSA (1 hr)
+
+Started with little intro and some project discussions. Post that 2 questions were asked :
+
+Given a matrix of dimension M * N where each cell in the matrix can have values 0, 1 or 2 which has the following meaning:
+0: Empty cell
+1: Cells have fresh oranges
+2: Cells have rotten oranges
+Determine what is the minimum time required so that all the oranges become rotten. A rotten orange at index (i,j ) can rot other fresh oranges which are its neighbours (up, down, left and right). If it is impossible to rot every orange then simply return -1.
+
+Given an unsorted array arr[0..n-1] of size n, find the minimum length subarray arr[s..e] such that sorting this subarray makes the whole array sorted.
+Example: If the input array is [10, 12, 20, 30, 25, 40, 32, 31, 35, 50, 60]
+Result =[3, 8].
+
+Result: Positive
+
+Round 2: LLD round (1hr)
+
+Design Train Ticket Booking Platform like IRCTC
+
+What Interviewer wanted to discuss :
+
+Solid Functional Requirements.
+DB Schemas.
+Relationships among schemas.
+Solving the requirements with the DB Schemas & Relationships
+Functional requirements :
+
+User should be able to login/register
+User should be able to select from and to stations(search), date
+User should be able to see all filtered trains
+User should be able to select seats
+User should be able to make payment(successful)
+User should be download the ticket
+User should notification of ticket booking
+Non Functional Requirements [IF TIME PERMITS] - Didn't get time for this.
+
+Result: Positive
+
+Round 3: HM (45 mins)
+
+Pure techno-managerial round, questions about previous projects and their tech stack. 2-3 boring behavioral questions.
+
+Result: Positive
+
+Final Verdict: Selected. Had verbal offer discussion to which they were offering me 32 base only, needed to relocate to bangalore and then 5 days in office so declined it immediately(had better offers)
