@@ -1,0 +1,32 @@
+Company: PayU
+Position: Senior Software Engineer
+Location: Gurgaon
+
+Round 1: DSA (1 hr)
+
+Started with little intro and some project discussions. Post that 2 questions were asked :
+
+https://leetcode.com/problems/merge-intervals/
+https://leetcode.com/problems/trapping-rain-water/
+Working code was expected on your local/online IDE.
+Result: Positive
+
+Round 2: Design(HLD + LLD) (1hr)
+
+Design BookMyShow. You've to fetch all functional and non-functional requirements yourself from the interviewer. Interviewer wanted to talk about all aspects like DB Schema, Classes, Relations, Locking, Concurrency, sharding, handling 10 million requests, Scalability and making it fault tolerant.
+
+Result: Positive
+
+Round 3: HM (1hr)
+
+Again started with deep dive on projects, team, roles and responsibilities.
+In depth discussion on mostly all projects i had done.
+The approach i took in each problem and the reasons to take those approaches and not go ahead with other ones.
+The impact of those projects. Plenty of questions over redis and kafka.
+Discussions on Engineering Excellence tasks, Design reviews, etc.
+Reasons for switch, why PayU, etc.
+
+Result: Positive
+
+Final Verdict: Selected
+

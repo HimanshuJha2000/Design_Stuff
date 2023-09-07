@@ -1,0 +1,41 @@
+Company: PhonePe
+Position: Software Engineer
+Location: Pune
+
+Round 1: Machine Coding (2 hr)
+
+Develop a TODO task tracking application which allows its users to maintain TODO lists. TODO tasks in the list can have a deadline and tags associated with them for easier grouping and management. You can demonstrate the working of the application using a driver program. There is no requirement to use a database for persistence (instead, use memory to store data) or write a web service.
+
+Features :
+
+Users should be able to update the TODO list at any point in time - add, modify and remove tasks
+A task can be marked as completed and once it is completed, it is automatically removed from the TODO list. Tasks can also be added to appear in the TODO list at a future date.
+Users should be able to see an activity log which describes additions, modifications and removals of tasks from the TODO list during a particular time period.
+Users should also be able to see statistics around how many tasks were added, completed and spilled over the deadline during a particular period of time.
+Implementation requirements
+
+Result: Hire
+
+Round 2: HLD + LLD (1.5 hr)
+
+Started with 10min discussion on current project and architecture, followed by a design question of designing a platform similar to reddit or quora for 50 mins. Discussed about all things like entities, actors, DB schema, Microservices involved, Scaling, Availability, Concurrency, fault taulerance.
+
+Result: Hire
+
+Round 3: PS/DS (1.5 hr)
+
+Started again with discussion on current project and architecture for 30 mins, followed by two DS/Algo question.
+
+https://leetcode.com/problems/snakes-and-ladders/(Similar to this)
+https://leetcode.com/problems/daily-temperatures/
+Able to solve both questions but interviewer was very arguing type, not trying to digest any other solutions apart from what he has in mind.
+
+Result: Neutral or Hire(don't know exactly, anyways aced to the next round)
+
+Round 4: HM (2 hr)
+
+A very senior leader(20+ YoE) joined the call, Started with his introduction(10 min) and then handed over to me to explain all my past projects and their archtiecture in detail(60 mins). Post that he started asking questions related to the challeneges I faced, some questions over Kafka, Garafana, Kubernetes, Redis, Concurrency and had a healthy discussion over the engineering practices that one should follow. Ended with discussions about current Salary and expectations and holding offers.
+
+Result: Hire
+
+Update 1 : Got Selected
